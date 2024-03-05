@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1087893533409",
+    "project_id": "fed-6798b",
+    "storage_bucket": "fed-6798b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087893533409:android:b3b366ae1f3cd7df24bda0",
+        "android_client_info": {
+          "package_name": "com.federal.fedsecure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8TtR-B0XkAST9LmYDKw98wEjCIBenn1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
