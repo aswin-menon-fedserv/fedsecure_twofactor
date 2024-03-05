@@ -38,8 +38,6 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
       networkStatus_stored,
       mobileNumber_stored;
 
-  var sms_encrypted =
-      'FEDALRT YWhzamVrd2xhb3Npcm13bm6NmlDr/amhmITMKkyTNoXcpf4Ti+6JLksgvcmTuYET';
 
   bool isLoading = false;
 
@@ -75,7 +73,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
           keyPair.publicKey as RSAPublicKey, Uint8List.fromList(deviceIdBytes));
       //print('Encrypted Device ID in Base64: $encryptedDeviceIdBase64');
 
-      first10encryptedDeviceIdBase64 = encryptedDeviceIdBase64.substring(0, 10);
+      first10encryptedDeviceIdBase64 = encryptedDeviceIdBase64.substring(0, 10).replaceAll(new RegExp(r'[^\w\s]+'), '');
       print('Encrypted Device ID: LOTZA $first10encryptedDeviceIdBase64');
 
       HiveHelper.saveData('encryptedDeviceId_stored',
