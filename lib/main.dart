@@ -15,6 +15,9 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:telephony/telephony.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
+
 onBackgroundMessage(SmsMessage message) {
   debugPrint("onBackgroundMessage called");
 }
@@ -34,6 +37,9 @@ Future<void> main() async {
 
   // Initialize Firebase Notifications
   await FirebaseNotification().initFirebase();
+
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
 
   //bool? permissionsGranted = await telephony.requestPhoneAndSmsPermissions;

@@ -42,6 +42,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     _model = HomeModel();
 
     init();
+    
   }
 
   Future<void> init() async {
