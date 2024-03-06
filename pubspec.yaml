@@ -38,6 +38,8 @@ dependencies:
   auto_size_text: ^3.0.0
   webview_flutter: ^2.0.13
   firebase_crashlytics: ^3.4.16
+  firebase_analytics: ^10.8.7
+
 
   telephony:
     git:

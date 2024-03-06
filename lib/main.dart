@@ -8,6 +8,7 @@ import 'package:fedsecure/ui/Messages/MessagesScreenWidget.dart';
 import 'package:fedsecure/ui/firebase/firebase_notification.dart';
 import 'package:fedsecure/ui/onBoarding/mpin/SetMPINWidget.dart';
 import 'package:fedsecure/ui/onBoarding/splashScreen/SplashScreenWidget.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -39,6 +40,7 @@ Future<void> main() async {
   await FirebaseNotification().initFirebase();
 
   WidgetsFlutterBinding.ensureInitialized();
+  trackScreenView('HomeScreenMain');
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
 
@@ -48,6 +50,7 @@ Future<void> main() async {
   //     print(permissionsGranted);
   //   }
 
+
   var status = await Permission.sms.request();
 
   if (status == PermissionStatus.granted) {
@@ -56,6 +59,11 @@ Future<void> main() async {
 
   runApp(const MyApp());
   FlutterNativeSplash.remove();
+}
+void trackScreenView(String screenName) {
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  analytics.logEvent(name: 'screen_Testing_Main', parameters: {'screen_name': screenName});
+  print("loged");
 }
 
 class MyApp extends StatefulWidget {
